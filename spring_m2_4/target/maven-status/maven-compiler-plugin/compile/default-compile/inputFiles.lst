@@ -1,0 +1,17 @@
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/config/AppSecurityConfig.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/services/IdProvider.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/WebAppInitializer.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/config/SecurityInit.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/web/dto/BookIdToRemove.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/services/ProjectRepository.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/web/dto/LoginForm.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/web/config/WebContextConfig.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/services/LoginService.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/web/controllers/BookShelfController.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/services/BookRepository.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/exceptions/BookShelfLoginException.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/web/controllers/ErrorController.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/services/BookService.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/app/config/AppContextConfig.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/web/dto/Book.java
+/home/ws/SpringTest/spring_m2_4/src/main/java/org/example/web/controllers/LoginController.java
