@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Header-menu" th:fragment="header_menu">
+    <div class="wrap">
+        <nav class="menuModal" id="navigate">
+            <ul class="menu menu_main">
+                <li class="menu-item"
+                    th:classappend="${httpServletRequest.getRequestURI().equals('/') ? 'menu-item menu-item_ACTIVE' : ''}">
+                    <a class="menu-link" th:href="@{/}" th:text="#{topbar.main}">Главная</a>
+                </li>
+                <li class="menu-item"
+                    th:classappend="${httpServletRequest.getRequestURI().startsWith('/genres') ? 'menu-item menu-item_ACTIVE' : ''}">
+                    <a class="menu-link" th:href="@{/genres}" th:text="#{topbar.genres}">Жанры</a>
+                </li>
+                <li class="menu-item"
+                    th:classappend="${httpServletRequest.getRequestURI().startsWith('/books/recent') ? 'menu-item menu-item_ACTIVE' : ''}">
+                    <a class="menu-link" th:href="@{/books/recent}" th:text="#{topbar.news}">Новинки</a>
+                </li>
+                <li class="menu-item"
+                    th:classappend="${httpServletRequest.getRequestURI().startsWith('/books/popular') ? 'menu-item menu-item_ACTIVE' : ''}">
+                    <a class="menu-link" th:href="@{/books/popular}" th:text="#{topbar.popular}">Популярное</a>
+                </li>
+                <li class="menu-item"
+                    th:classappend="${httpServletRequest.getRequestURI().startsWith('/authors') ? 'menu-item menu-item_ACTIVE' : ''}">
+                    <a class="menu-link" th:href="@{/authors}" th:text="#{topbar.authors}">Авторы</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="row-block" th:fragment="row_block">
+    <ul class="menu menu_vt Footer-menu">
+        <li class="menu-item"><a class="menu-link" th:href="@{/}" th:text="#{topbar.main}">Главная</a>
+        </li>
+        <li class="menu-item"><a class="menu-link" th:href="@{/genres}" th:text="#{topbar.genres}">Жанры</a>
+        </li>
+        <li class="menu-item"><a class="menu-link" th:href="@{/books/recent}" th:text="#{topbar.news}">Новинки</a>
+        </li>
+        <li class="menu-item"><a class="menu-link" th:href="@{/books/popular}"
+                                 th:text="#{topbar.popular}">Популярное</a>
+        </li>
+        <li class="menu-item"><a class="menu-link" th:href="@{/authors}" th:text="#{topbar.authors}">Авторы</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
