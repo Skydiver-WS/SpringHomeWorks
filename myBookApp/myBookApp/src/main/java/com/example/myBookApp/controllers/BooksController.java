@@ -10,27 +10,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Controller
-public class MainPageController {
+@RequestMapping("/books")
+public class BooksController {
     private final BookService bookService;
 
     @Autowired
-    public MainPageController(BookService bookService) {
+    public BooksController(BookService bookService) {
         this.bookService = bookService;
     }
 
-    @GetMapping("/")
-    public String mainPage(Model model, HttpServletRequest httpServletRequest) {
-        model.addAttribute("httpServletRequest", httpServletRequest);
-        return "index";
+    @ModelAttribute("booksList")
+    public List<Book> bookList() {
+        return bookService.getBooksData();
     }
 
-    @ModelAttribute("recommendedBooks")
-    public List<Book> recommendedBooks(){
-        return bookService.getBooksData();
+    @GetMapping("/recent")
+    public String recentPage(Model model, HttpServletRequest httpServletRequest) {
+        model.addAttribute("httpServletRequest", httpServletRequest);
+        return "/books/recent";
+
+    }
+
+    @GetMapping("/popular")
+    public String popularPage(Model model, HttpServletRequest httpServletRequest) {
+        model.addAttribute("httpServletRequest", httpServletRequest);
+        return "/books/popular";
     }
 }

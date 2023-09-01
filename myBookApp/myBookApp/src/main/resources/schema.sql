@@ -1,6 +1,19 @@
-DROP TABLE IF EXISTS alphabetRUS, books, authors;
+DROP TABLE IF EXISTS books, authors;
 
+-- CREATE TABLE
+--     alphabet
+-- (
+--     id  INT AUTO_INCREMENT PRIMARY KEY,
+--     let VARCHAR(250) NOT NULL
+-- );
 
+CREATE TABLE authors
+(
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name  VARCHAR(50)
+--     indexABC   INT NOT NULL
+);
 
 CREATE TABLE books
 (
@@ -11,22 +24,10 @@ CREATE TABLE books
     price     VARCHAR(250) DEFAULT NULL
 );
 
-CREATE TABLE authors
-(
-    id       INT AUTO_INCREMENT PRIMARY KEY,
-    author   VARCHAR(250) NOT NULL,
-    indexABC INT          NOT NULL
-);
-
-CREATE TABLE
-    alphabetRUS
-(
-    id  INT AUTO_INCREMENT PRIMARY KEY,
-    let VARCHAR(250) NOT NULL
-);
-
-ALTER TABLE books ADD FOREIGN KEY (author_id) REFERENCES authors(id);
-ALTER TABLE authors ADD FOREIGN KEY (indexABC) REFERENCES alphabetRUS(id);
+ALTER TABLE books
+    ADD FOREIGN KEY (author_id) REFERENCES authors (id);
+-- ALTER TABLE authors
+--     ADD FOREIGN KEY (indexABC) REFERENCES alphabet (id);
 
 
 

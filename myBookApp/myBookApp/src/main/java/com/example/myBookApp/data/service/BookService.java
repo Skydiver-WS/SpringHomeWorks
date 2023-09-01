@@ -23,7 +23,7 @@ public class BookService {
         List<Book> books = jdbcTemplate.query("SELECT * FROM books b JOIN authors a ON b.author_id = a.id", (ResultSet rs, int rowNum) -> {
             Book book = new Book();
             book.setId(rs.getInt("id"));
-            book.setAuthor(rs.getString("author"));
+            book.setAuthor(rs.getString("first_name") + " " + rs.getString("last_name"));
             book.setTitle(rs.getString("title"));
             book.setPriceOld(rs.getString("price_old"));
             book.setPrice(rs.getString("price"));
