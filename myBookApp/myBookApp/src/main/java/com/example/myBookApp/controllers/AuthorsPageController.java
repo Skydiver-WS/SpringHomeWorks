@@ -1,6 +1,6 @@
 package com.example.myBookApp.controllers;
 
-import com.example.myBookApp.data.dto.Author;
+import com.example.myBookApp.data.model.authors.Author;
 import com.example.myBookApp.data.service.AuthorService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
