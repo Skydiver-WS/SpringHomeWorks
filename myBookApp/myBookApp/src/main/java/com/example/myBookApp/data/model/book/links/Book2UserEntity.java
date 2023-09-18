@@ -1,12 +1,16 @@
 package com.example.myBookApp.data.model.book.links;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "book2user")
+@Getter
+@Setter
 public class Book2UserEntity {
 
 
@@ -25,36 +29,4 @@ public class Book2UserEntity {
 
     @Column(columnDefinition = "INT NOT NULL")
     private int userId;
-
-    public LocalDateTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-    }
-
-    public int getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
-    }
-
-    public int getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 }
