@@ -1,6 +1,6 @@
 databaseChangeLog:
 - changeSet:
-    id: 1695025192025-1
+    id: 1695798378366-1
     author: ws (generated)
     changes:
     - createTable:
@@ -41,7 +41,7 @@ databaseChangeLog:
             type: TEXT
         tableName: balance_transaction
 - changeSet:
-    id: 1695025192025-2
+    id: 1695798378366-2
     author: ws (generated)
     changes:
     - createTable:
@@ -72,7 +72,7 @@ databaseChangeLog:
             type: INTEGER
         tableName: book2author
 - changeSet:
-    id: 1695025192025-3
+    id: 1695798378366-3
     author: ws (generated)
     changes:
     - createTable:
@@ -97,7 +97,7 @@ databaseChangeLog:
             type: INTEGER
         tableName: book2genre
 - changeSet:
-    id: 1695025192025-4
+    id: 1695798378366-4
     author: ws (generated)
     changes:
     - createTable:
@@ -132,7 +132,7 @@ databaseChangeLog:
             type: TIMESTAMP WITHOUT TIME ZONE
         tableName: book2user
 - changeSet:
-    id: 1695025192025-5
+    id: 1695798378366-5
     author: ws (generated)
     changes:
     - createTable:
@@ -157,7 +157,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: book2user_type
 - changeSet:
-    id: 1695025192025-6
+    id: 1695798378366-6
     author: ws (generated)
     changes:
     - createTable:
@@ -180,7 +180,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: book_file_type
 - changeSet:
-    id: 1695025192025-7
+    id: 1695798378366-7
     author: ws (generated)
     changes:
     - createTable:
@@ -215,7 +215,7 @@ databaseChangeLog:
             type: TEXT
         tableName: book_review
 - changeSet:
-    id: 1695025192025-8
+    id: 1695798378366-8
     author: ws (generated)
     changes:
     - createTable:
@@ -250,7 +250,7 @@ databaseChangeLog:
             type: TIMESTAMP WITHOUT TIME ZONE
         tableName: book_review_like
 - changeSet:
-    id: 1695025192025-9
+    id: 1695798378366-9
     author: ws (generated)
     changes:
     - createTable:
@@ -259,11 +259,8 @@ databaseChangeLog:
             name: author_id
             type: INTEGER
         - column:
-            constraints:
-              nullable: false
-            defaultValueNumeric: 0
             name: discount
-            type: SMALLINT
+            type: INTEGER
         - column:
             autoIncrement: true
             constraints:
@@ -278,27 +275,20 @@ databaseChangeLog:
             name: is_bestseller
             type: SMALLINT
         - column:
+            name: price
+            type: INTEGER
+        - column:
             constraints:
               nullable: false
             name: pub_date
-            type: TIMESTAMP WITHOUT TIME ZONE
+            type: date
         - column:
             name: description
             type: TEXT
         - column:
-            constraints:
-              nullable: false
             name: image
             type: VARCHAR(255)
         - column:
-            name: price
-            type: VARCHAR(255)
-        - column:
-            name: price_old
-            type: VARCHAR(255)
-        - column:
-            constraints:
-              nullable: false
             name: slug
             type: VARCHAR(255)
         - column:
@@ -306,7 +296,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: books
 - changeSet:
-    id: 1695025192025-10
+    id: 1695798378366-10
     author: ws (generated)
     changes:
     - createTable:
@@ -342,7 +332,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: document
 - changeSet:
-    id: 1695025192025-11
+    id: 1695798378366-11
     author: ws (generated)
     changes:
     - createTable:
@@ -373,7 +363,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: faq
 - changeSet:
-    id: 1695025192025-12
+    id: 1695798378366-12
     author: ws (generated)
     changes:
     - createTable:
@@ -404,7 +394,7 @@ databaseChangeLog:
             type: INTEGER
         tableName: file_download
 - changeSet:
-    id: 1695025192025-13
+    id: 1695798378366-13
     author: ws (generated)
     changes:
     - createTable:
@@ -432,7 +422,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: genre
 - changeSet:
-    id: 1695025192025-14
+    id: 1695798378366-14
     author: ws (generated)
     changes:
     - createTable:
@@ -471,7 +461,7 @@ databaseChangeLog:
             type: TEXT
         tableName: message
 - changeSet:
-    id: 1695025192025-15
+    id: 1695798378366-15
     author: ws (generated)
     changes:
     - createTable:
@@ -515,7 +505,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: user_contact
 - changeSet:
-    id: 1695025192025-16
+    id: 1695798378366-16
     author: ws (generated)
     changes:
     - createTable:
@@ -550,7 +540,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: users
 - changeSet:
-    id: 1695025192025-17
+    id: 1695798378366-17
     author: ws (generated)
     changes:
     - createSequence:
@@ -563,7 +553,7 @@ databaseChangeLog:
         sequenceName: authors_seq
         startValue: 1
 - changeSet:
-    id: 1695025192025-18
+    id: 1695798378366-18
     author: ws (generated)
     changes:
     - createTable:
@@ -588,13 +578,11 @@ databaseChangeLog:
             name: photo
             type: VARCHAR(255)
         - column:
-            constraints:
-              nullable: false
             name: slug
             type: VARCHAR(255)
         tableName: authors
 - changeSet:
-    id: 1695025192025-19
+    id: 1695798378366-19
     author: ws (generated)
     changes:
     - addForeignKeyConstraint:

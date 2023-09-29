@@ -20,7 +20,8 @@ public class Author {
     @OneToMany(mappedBy = "author")
     private List<Book> bookList;
     private String photo;
-    @Column(nullable = false)
+
+    //    @Column(nullable = false)
     private String slug;
     @Column(columnDefinition = "TEXT")
     private String description;
