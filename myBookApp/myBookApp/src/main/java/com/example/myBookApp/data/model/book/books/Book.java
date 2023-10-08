@@ -12,21 +12,17 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "books")
 @Data
-@Schema(name = "book date", description = "test descriptions", hidden = true)
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(name = "id table", description = " test1", hidden = true)
     private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     @JsonIgnore
-    @Schema(name = "authors table", description = " test2", hidden = true)
     private Author author;
 
     @Column(name = "pub_date", nullable = false)
-    @Schema(name = "pubDate table", description = " test3", hidden = true)
     private Date pubDate;
 
     @Column(name = "is_bestseller", nullable = false, columnDefinition = "SMALLINT")

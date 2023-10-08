@@ -24,6 +24,7 @@ import java.util.List;
 @Controller
 @Tag(name = "sdf", description = "wef2q3t34q")
 public class MainPageController {
+
     private final BookService bookService;
 
     @Autowired
@@ -40,12 +41,8 @@ public class MainPageController {
 
     @ModelAttribute("recommendedBooks")
     public List<Book> recommendedBooks() {
-        return bookService.getBooksData();
+        List<Book> list = bookService.getPageOfBooks(0, 6).getContent();
+        return list;
     }
 
-    @GetMapping("/books/recommended")
-    @ResponseBody
-    public BooksPageDto getBooksPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
-        return new BooksPageDto(bookService.getPageOfBooks(offset, limit).getContent());
-    }
 }

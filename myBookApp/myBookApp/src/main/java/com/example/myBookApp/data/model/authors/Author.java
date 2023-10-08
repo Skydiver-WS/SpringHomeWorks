@@ -1,6 +1,7 @@
 package com.example.myBookApp.data.model.authors;
 
 import com.example.myBookApp.data.model.book.books.Book;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 

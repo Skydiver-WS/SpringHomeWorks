@@ -1,14 +1,13 @@
 package com.example.myBookApp.controllers;
 
+import com.example.myBookApp.data.dto.BooksPageDto;
 import com.example.myBookApp.data.model.book.books.Book;
 import com.example.myBookApp.data.service.BookService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,21 +21,35 @@ public class BooksController {
         this.bookService = bookService;
     }
 
-    @ModelAttribute("booksList")
-    public List<Book> bookList() {
-        return bookService.getBooksData();
+//    @GetMapping("/recent")
+//    public String recentPage(Model model, HttpServletRequest httpServletRequest) {
+//        model.addAttribute("httpServletRequest", httpServletRequest);
+//        return "/books/recent";
+//    }
+//
+//    @GetMapping("/popular")
+//    public String popularPage(Model model, HttpServletRequest httpServletRequest) {
+//        model.addAttribute("httpServletRequest", httpServletRequest);
+//        return "/books/popular";
+//    }
+
+
+    @GetMapping("/recommended")
+    @ResponseBody
+    public BooksPageDto getBooksRecommendedPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
+        return new BooksPageDto(bookService.getPageOfBooks(offset, limit).getContent());
     }
 
     @GetMapping("/recent")
-    public String recentPage(Model model, HttpServletRequest httpServletRequest) {
-        model.addAttribute("httpServletRequest", httpServletRequest);
-        return "/books/recent";
-
+    @ResponseBody
+    public BooksPageDto getBooksRecentPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
+        BooksPageDto booksPageDto = new BooksPageDto(bookService.getRecentBooks(offset, limit).getContent());
+        return booksPageDto;
     }
 
     @GetMapping("/popular")
-    public String popularPage(Model model, HttpServletRequest httpServletRequest) {
-        model.addAttribute("httpServletRequest", httpServletRequest);
-        return "/books/popular";
+    @ResponseBody
+    public BooksPageDto getBooksPopularPage(@RequestParam("offset") Integer offset, @RequestParam("limit") Integer limit) {
+        return new BooksPageDto(bookService.getPageOfBooks(offset, limit).getContent());
     }
 }
