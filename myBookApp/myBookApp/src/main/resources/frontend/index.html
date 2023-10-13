@@ -43,6 +43,8 @@ p.error-browser
 <div class="Middle">
     <div class="wrap">
         <main class="Middle-main">
+
+            <!--                Sections RECOMMENDED START-->
             <div class="Section">
                 <div class="Section-header">
                     <h2 class="Section-title" th:text="#{topbar.recommended}">Рекомендуемое
@@ -52,20 +54,7 @@ p.error-browser
                     <div class="Slider-box Cards" data-load="recommended" data-loadoffset="0" data-loadlimit="6">
                         <div class="Slider-item" th:each="book : ${recommendedBooks}">
                             <div class="Slider-content">
-                                <div class="Card"><a class="Card-picture" href="/books/slug.html"><img
-                                        src="/assets/img/content/main/card.jpg" th:src="${book.image}"
-                                        alt="card.jpg"/></a>
-                                    <div class="Card-content">
-                                        <strong class="Card-title"><a href="/books/slug.html" th:text="${book.title}">Техника</a>
-                                        </strong>
-                                        <div class="Card-description" th:text="${book.author}">Кондратенко Валерий
-                                            Петрович
-                                        </div>
-                                        <div class="Card-cost"><span class="Card-priceOld" th:text="${book.priceOld}">₽300.00</span>
-                                            <span class="Card-price" th:text="${book.price}">₽190.00</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <footer th:replace="~{fragments/card_index_page_fragment :: card}"></footer>
                             </div>
                         </div>
                     </div>
@@ -78,8 +67,9 @@ p.error-browser
                         </div>
                     </div>
                 </div>
+                <!--                Sections RECOMMENDED END-->
 
-<!--                Sections News-->
+                <!--                Sections RECENT START-->
                 <div class="Section-header">
                     <h2 class="Section-title" th:text="#{topbar.news}">Новинки
                     </h2>
@@ -87,23 +77,9 @@ p.error-browser
 
                 <div class="Slider Slider_carousel">
                     <div class="Slider-box Cards" data-load="recent" data-loadoffset="0" data-loadlimit="6">
-                        <div class="Slider-item" th:each="book : ${recommendedBooks}">
+                        <div class="Slider-item" th:each="book : ${recentBooks}">
                             <div class="Slider-content">
-                                <div class="Card"><a class="Card-picture" href="/books/slug.html"><img
-                                        src="/assets/img/content/main/card.jpg" th:src="${book.image}" alt="card.jpg"/>
-                                    <div class="Card-sale">30% скидка
-                                    </div>
-                                </a>
-                                    <div class="Card-content">
-                                        <strong class="Card-title" ><a href="/books/slug.html" th:text="${book.title}">Техника</a>
-                                        </strong>
-                                        <div class="Card-description" th:text="${book.author}">Кондратенко Александр Петрович
-                                        </div>
-                                        <div class="Card-cost"><span class="Card-priceOld" th:text="${book.priceOld}">₽500.00</span><span
-                                                class="Card-price" th:text="${book.price}">₽390.00</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <footer th:replace="~{fragments/card_index_page_fragment :: card}"></footer>
                             </div>
                         </div>
                     </div>
@@ -117,68 +93,18 @@ p.error-browser
                     </div>
                 </div>
 
-<!--                Sections popular-->
-<!--                <div class="Section-header">-->
-<!--                    <h2 class="Section-title" th:text="#{topbar.popular}">Популярное-->
-<!--                    </h2>-->
-<!--                </div>-->
-<!--                <div class="Slider Slider_carousel">-->
-<!--                    <div class="Slider-box Cards" data-load="popular" data-loadoffset="0" data-loadlimit="6">-->
-<!--                        <div class="Slider-item">-->
-<!--                            <div class="Slider-item" th:each="book : ${recommendedBooks}">-->
-<!--                                <div class="Card"><a class="Card-picture" href="/books/slug.html"><img-->
-<!--                                        src="/assets/img/content/main/card.jpg" th:src="${book.image}" alt="card.jpg"/>-->
-<!--                                    <div class="Card-sale">30% скидка-->
-<!--                                    </div>-->
-<!--                                    <div class="Card-ribbon"><span class="Card-ribbonText">Бестселлер</span>-->
-<!--                                    </div>-->
-<!--                                </a>-->
-<!--                                    <div class="Card-content">-->
-<!--                                        <strong class="Card-title"><a href="/books/slug.html" th:text="${book.title}">Техника</a>-->
-<!--                                        </strong>-->
-<!--                                        <div class="Card-description" th:text="${book.author}">Кондратенко Александр Петрович-->
-<!--                                        </div>-->
-<!--                                        <div class="Card-cost"><span class="Card-priceOld" th:text="${book.priceOld}">₽500.00</span><span-->
-<!--                                                class="Card-price" th:text="${book.price}">₽390.00</span>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="Slider-navigateWrap">-->
-<!--                        <div class="Slider-navigate">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="Slider-load">-->
-<!--                        <div class="Slider-load-text" th:text="#{topbar.load}">Идет загрузка данных-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                Sections RECENT END-->
 
+                <!--Popular sections START-->
                 <div class="Section-header">
                     <h2 class="Section-title" th:text="#{topbar.popular}">Популярное
                     </h2>
                 </div>
                 <div class="Slider Slider_carousel">
                     <div class="Slider-box Cards" data-load="popular" data-loadoffset="0" data-loadlimit="6">
-                        <div class="Slider-item" th:each="book : ${recommendedBooks}">
+                        <div class="Slider-item" th:each="book : ${popular}">
                             <div class="Slider-content">
-                                <div class="Card"><a class="Card-picture" href="/books/slug.html"><img
-                                        src="/assets/img/content/main/card.jpg" th:src="${book.image}" alt="card.jpg"/>
-                                    <div class="Card-sale">30% скидка
-                                    </div>
-                                </a>
-                                    <div class="Card-content">
-                                        <strong class="Card-title" ><a href="/books/slug.html" th:text="${book.title}">Техника</a>
-                                        </strong>
-                                        <div class="Card-description" th:text="${book.author}">Кондратенко Александр Петрович
-                                        </div>
-                                        <div class="Card-cost"><span class="Card-priceOld" th:text="${book.priceOld}">₽500.00</span><span
-                                                class="Card-price" th:text="${book.price}">₽390.00</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <footer th:replace="~{fragments/card_index_page_fragment :: card}"></footer>
                             </div>
                         </div>
                     </div>
@@ -191,6 +117,9 @@ p.error-browser
                         </div>
                     </div>
                 </div>
+                <!--Popular sections END-->
+
+
             </div>
             <h2 class="Middle-title" th:text="#{topbar.booksByTags}">Книги по тегам
             </h2>

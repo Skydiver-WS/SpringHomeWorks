@@ -57,6 +57,8 @@ p.error-browser
                     <h1 class="Section-title" th:text="#{topbar.news}">Новинки
                     </h1>
                     <form class="form form_inline Section-header-form" action="#" method="post">
+
+<!--                        input interval date start-->
                         <div class="form-group">
                             <label class="form-label">с
                             </label>
@@ -73,6 +75,8 @@ p.error-browser
                                    data-refreshlimit="20" data-refreshshow="changedate" data-refreshto="0"
                                    autocomplete="off"/>
                         </div>
+                        <!--                        input interval date end-->
+
                     </form>
                 </div>
                 <div th:replace="~{fragments/card_refresh_fragment :: cards}"></div>
