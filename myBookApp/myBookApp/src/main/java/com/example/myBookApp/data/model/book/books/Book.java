@@ -8,6 +8,8 @@ import lombok.Data;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "books")
@@ -22,33 +24,41 @@ public class Book {
     @JsonIgnore
     private Author author;
 
-    //    @Column(name = "pub_date", nullable = false)
-    @Column(name = "pub_date")
+    @Column(name = "pub_date", nullable = false)
+//    @Column(name = "pub_date")
     private Date pubDate;
 
-    //    @Column(name = "is_bestseller", nullable = false, columnDefinition = "SMALLINT")
-    @Column(name = "is_bestseller")
+    @Column(name = "is_bestseller", nullable = false, columnDefinition = "SMALLINT")
+//    @Column(name = "is_bestseller")
     private Integer isBestseller;
 
-    //    @Column(nullable = false)
+    @Column(nullable = false)
     private String slug;
 
     private String title;
 
     private String image;
 
-//    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "price")
     private Integer priceOld;
 
-    //    @Column(nullable = false, columnDefinition = "SMALLINT DEFAULT 0")
+    @Column(nullable = false, columnDefinition = "SMALLINT DEFAULT 0")
     private int discount;
 
-    //    @Column(nullable = false, columnDefinition = "SMALLINT DEFAULT 0")
+    @Column(nullable = false, columnDefinition = "SMALLINT DEFAULT 0")
     private Integer rating;
 
-    //    @Column(nullable = false, columnDefinition = "SMALLINT DEFAULT 0")
+    @Column(nullable = false, columnDefinition = "SMALLINT DEFAULT 0")
     private Integer popular;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "book_tags",
+            joinColumns = {@JoinColumn(name = "book_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "tag_id", referencedColumnName = "id")}
+    )
+    private Set<Tags> listTags = new HashSet<>();
 }

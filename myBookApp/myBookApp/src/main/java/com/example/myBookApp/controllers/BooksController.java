@@ -46,7 +46,8 @@ public class BooksController {
     @ResponseBody
     public BooksPageDto getBooksRecentPage(@RequestParam("offset") Integer offset,
                                            @RequestParam("limit") Integer limit) {
-        return new BooksPageDto(booksRecentPageService.getRecentBooks(offset, limit));
+        BooksPageDto dto = new BooksPageDto(booksRecentPageService.getRecentBooks(offset, limit));
+        return dto;
     }
 
     @GetMapping(path = "/recent", params = {"offset", "limit", "from", "to"})

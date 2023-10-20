@@ -16,5 +16,5 @@ public class BookDto {
     private Integer rating;
     private String status;
     private Integer price;
-    private Integer discountPrice; //В JS так посему то назвали старую цену
+    private Integer discountPrice; //В JS так почему-то назвали старую цену
 }
